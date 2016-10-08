@@ -1,4 +1,4 @@
-# kaggle_abstraction_classification
+# kaggle_abstract_classification
 Project 2 for McGill COMP551 Applied Machine Learning
 
 # Attention:
