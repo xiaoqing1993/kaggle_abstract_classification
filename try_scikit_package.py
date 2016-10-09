@@ -26,8 +26,7 @@ from sklearn.metrics import accuracy_score
 #from sklearn.feature_extraction.text import CountVectorizer
 from feature_extraction import FeatureGenerator
 
-
-F_gnr = FeatureGenerator(max_features=1000)
+F_gnr = FeatureGenerator(binary=True, max_features=1000)
 X = F_gnr.F_extraction()
 y = F_gnr.read_y()
 
@@ -47,9 +46,10 @@ clf_nbM.fit(X_train,y_train)
 print 'Multinomial:', accuracy_score(y_test,clf_nbM.predict(X_test))
 
 clf_hm1 = MultiNaiveBayes()
-clf_hm1.fit(X_train, y_train)
-y_pre = clf_hm1.predict(X_test)
-print 'multinomial by mxq:', accuracy_score(y_test, y_pre)
+X_train0, X_test0, y_train0, y_test0 = clf_hm1.desparse_split(X, y)
+clf_hm1.fit(X_train0, y_train0)
+y_pre = clf_hm1.predict(X_test0)
+print 'multinomial by mxq:', accuracy_score(y_test0, y_pre)
 
 '''
 clf_hm2 = BernouNaiveBayes()
