@@ -6,11 +6,17 @@ Created on Wed Oct 05 16:00:32 2016
 """
 import numpy as np
 import operator
+from sklearn.model_selection import train_test_split
+
 class MultiNaiveBayes():
     def __init__(self, X = [0], y = 0, n_categ = 4, alpha = 0.01):
         self.n_categ = n_categ
         self.alpha = alpha
-    
+        
+    def desparse_split(self, X, y):
+        X = X.toarray()
+        return train_test_split(X, y, test_size=0.3, random_state=42)
+        
     def prior_count(self, y):
         set_y = set(y)
         dict_y = {}
