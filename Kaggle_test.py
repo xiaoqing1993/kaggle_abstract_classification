@@ -17,7 +17,7 @@ from sklearn.linear_model import LogisticRegression
 from feature_extraction import FeatureGenerator
 
 
-F_gnr = FeatureGenerator(max_features=3000)
+F_gnr = FeatureGenerator(max_features=30000)
 X_train, X_test = F_gnr.F_extraction_Kaggle()
 y_train = F_gnr.read_y()
 

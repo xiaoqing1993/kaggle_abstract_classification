@@ -17,7 +17,7 @@ class FeatureGenerator():
     def __init__(self, binary=True, max_features=5000):
         self.binary = binary
         self.max_features = max_features
-        self.split_point = 88936
+        self.split_point = 88636
         self.train_in = 'train_in.csv'
         self.train_out = 'train_out.csv'
         self.test_in = 'test_in.csv'
@@ -57,11 +57,7 @@ class FeatureGenerator():
         filename_train = self.train_in
         corpus = self.read_corpus(filename_train)
         print 'feature extracting ...'
-        X = vect.fit_transform(corpus)
-        X = X.toarray()
-        for ind, row in enumerate(X):
-            for ind2, fea in enumerate(row):
-                X[ind][ind2] = int(fea)
+        X = vect.fit_transform(corpus)  # sparse matrix
         return X
     
     def F_extraction_Kaggle(self):
@@ -75,11 +71,6 @@ class FeatureGenerator():
         corpus = self.attach_test_to_train(corpus_train, corpus_test)
         print 'feature extracting ...'
         X = vect.fit_transform(corpus)
-        X = X.toarray()
-        for ind, row in enumerate(X):
-            for ind2, fea in enumerate(row):
-                X[ind][ind2] = int(fea)
-        
         split_p = self.split_point
         X_train = X[0:split_p]
         X_test = X[split_p:]
