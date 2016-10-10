@@ -22,4 +22,3 @@ BernoulliNB's performance is very very unacceptable!
 
 K-fold cross-validation (for what?)
 
-Find the optimal number of features
