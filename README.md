@@ -17,8 +17,3 @@ Many Thanks to scikit-learn XD
 
 # What I Want to Do But Have No Time to Consider:
 Implement manual works in code
-
-BernoulliNB's performance is very very unacceptable!
-
-K-fold cross-validation (for what?)
-
